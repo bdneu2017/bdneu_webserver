@@ -1,0 +1,40 @@
+$def with (posts)
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+	<body>
+		<center>
+		<h1 style="margin-top:90px;">后台管理界面</h1><br/>
+		$if cookie().get('username')=='admin':
+			管理员选项:&nbsp;<a href="/logout" mce_href="logout"><input type="button" value="退出登录"></a>
+			<a href="/changeadmin" mce_href="changeadmin"><input type="button" value="修改密码"></a><br/><br/>
+			<a href="/networm" mce_href="networm"><input type="button" value="启动爬虫(百度贴吧)"></a>
+			<a href="/exitserver" mce_href="exitserver"><input type="button" value="停止网站服务器并退出" onclick="window.close();"></a><br/><br/>
+			$for post in posts:
+				<table>
+					<tr>
+						<td>
+							Author:<input type="text" name="post_author" value="$post.author" readonly="true" disabled="true" size="15"> 
+							Title:<input type="text" name="post_title" value="$post.title" readonly="true" disabled="true" size="40">
+						</td>
+					</tr>
+					<tr>
+						<td><textarea id="txtname" name="post_text" rows=8 cols=60 readonly="true"/>$post.content</textarea></td>
+					</tr>
+					<tr>
+						<td>Time:<input type="text" value="$post.posted_on" readonly="true" disabled="true"></td>
+					</tr>
+					<tr>
+						<td>
+							<a href="/edit/$post.id" mce_href="edit/$post.id"><input type="button" value="编辑留言"></a>
+							<a href="/delete/$post.id" mce_href="delete/$post.id"><input type="button" value="删除留言"></a>
+						</td>
+					</tr>
+				</table>
+				<br/><br/>
+		$else:
+			您没有权限访问此页面!<a href="/" mce_href=""><input type="button" value="返回"></a>
+		</center>
+	</body>
+</html>

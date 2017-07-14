@@ -1,0 +1,33 @@
+$def with(list)
+<html>
+<head>
+	<meta http-equiv="refresh" content="0.5";/>
+</head>
+	<title>System Information Function</title>
+	<body>
+		<center>
+		<table>
+			<tr>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">CPU使用率</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">内存占用</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">磁盘使用率</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">网络速率</td>
+			</tr>
+			<tr>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">
+					<script>document.write("$list.OutputInformation('cpu')%");</script>
+				</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">
+					<script>document.write("$list.OutputInformation('memory')%");</script>
+				</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">
+					<script>document.write("$list.OutputInformation('disk')%");</script>
+				</td>
+				<td align="center" style="width:90px; height: 21px;" valign="middle">
+					<script>document.write("$list.OutputInformation('network')kb/s");</script>
+				</td>
+			</tr>
+		</table>
+		</center>
+	</body>
+</html>

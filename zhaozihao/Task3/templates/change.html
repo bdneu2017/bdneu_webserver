@@ -1,0 +1,32 @@
+<html>
+	<body>
+		<center>
+		$if cookie().get('username')=='admin':
+			<h1>密码修改</h1>
+			<form action="" method="post">
+				<table>
+					<tr>
+						<td><label for="txtpswd">请输入新的密码：</label></td>
+						<td><input type="password" id="txtpswd1" name="new_password1" placeholder="新密码" size="22"/></td>
+					</tr>
+					<tr>
+						<td><label for="txtpswd">请再次输入密码：</label></td>
+						<td><input type="password" id="txtpswd2" name="new_password2" placeholder="再次输入密码" size="22"/></td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<input type="submit" value="完成修改"/>
+							<input type="reset" value="清除"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+		$else:
+			<p>您没有权限访问此页面</p>3秒后自动返回主页...
+			<script language="javascript" type="text/javascript"> 
+				setTimeout("javascript:location.href='/'",3000); 
+			</script>
+			如果未能正常返回，请按此<a href="/" mce_href=""><input type="button" value="返回主页"></a>
+		</center>
+	</body>
+</html>

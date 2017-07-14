@@ -1,0 +1,66 @@
+$def with (posts)
+<html>
+	<head>
+		<title>HomePage</title>
+	</head>
+	<body>
+		<center>
+		<div>
+			$if not cookie().get('username'):
+				<h1 style="margin-top:90px;">用户登录</h1>
+				<table style="margin-top:20px">
+				<form action="" method="post">
+					<tr>
+						<td><label for="txtname">请输入您的账号：</label></td>
+						<td><input type="text" id="txtname" name="login_username" placeholder="用户名" size="22"/></td>
+					</tr>
+					<tr>
+						<td><label for="txtpswd">请输入您的密码：</label></td>
+						<td><input type="password" id="txtpswd" name="login_password" placeholder="密码" size="22"/></td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<input type="submit" value="登录"/>
+							<input type="reset" value="清除"/>
+				</form>
+							<a href="/register" mce_href="register"><input type="button" value="注册"></a>
+						</td>
+					</tr>
+				</table>
+			$elif cookie().get('username')=='admin':
+				<h1 style="margin-top:90px;">主页</h1>
+				<p>欢迎管理员$cookie().get('username')!
+					<a href="/backstage" mce_href="backstage"><input type="button" value="进入后台"></a>
+					<a href="/logout" mce_href="logout"><input type="button" value="退出登录"></a>
+				</p>
+				<br/><br/>
+			$else:
+				<h1 style="margin-top:90px;">主页</h1>
+				欢迎用户$cookie().get('username')!<a href="/logout" mce_href="logout"><input type="button" value="退出登录"></a><br/><br/>
+				$for post in posts:
+					<table>
+						<tr>
+							<td>
+								Author:<input type="text" name="post_author" value="$post.author" readonly="true" disabled="true" size="15"> 
+								Title:<input type="text" name="post_title" value="$post.title" readonly="true" disabled="true" size="40">
+							</td>
+						</tr>
+						<tr>
+							<td><textarea id="txtname" name="post_text" rows=8 cols=60 readonly="true"/>$post.content</textarea></td>
+						</tr>
+						<tr>
+							<td>Time:<input type="text" value="$post.posted_on" readonly="true" disabled="true"></td>
+						</tr>
+						<tr>
+							<td>
+							$if cookie().get('username')==post.author:
+								<a href="/edit/$post.id" mce_href="edit/$post.id"><input type="button" value="编辑留言"></a>
+								<a href="/delete/$post.id" mce_href="delete/$post.id"><input type="button" value="删除留言"></a>
+							</td>
+						</tr>
+					</table>
+					<br/><br/>
+		</div>
+		</center>
+	</body>
+</html>
