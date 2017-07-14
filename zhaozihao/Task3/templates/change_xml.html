@@ -1,0 +1,31 @@
+$def with(xml)
+<html>
+	<body>
+		<center>
+		$if cookie().get('username'):
+			<h1 style="margin-top:90px;">Scrapy爬虫设置</h1>
+				<form action="" method="post">
+					<table> 
+						$for child in xml:
+							<tr>
+								<td>$child.get('name')</td>
+								<td><textarea id="$child.get('name')" name="$child.get('name')" rows=2 cols=66/>$child.text</textarea></td>
+							</tr>
+						<tr>
+							<td colspan=2>
+								<input type="submit" value="完成修改"/>
+								<input type="reset" value="清除"/>
+								<button onclick="/networm_plus">返回</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+		$else:
+			<p>您未登录，没有权限访问此页面</p>3秒后自动返回主页...
+			<script language="javascript" type="text/javascript"> 
+				setTimeout("javascript:location.href='/'",3000); 
+			</script>
+			如果未能正常返回，请按此<a href="/" mce_href=""><input type="button" value="返回主页"></a>
+		</center>
+	</body>
+</html>

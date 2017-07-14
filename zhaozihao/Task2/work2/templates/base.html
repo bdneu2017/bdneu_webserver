@@ -1,0 +1,60 @@
+$def with (page)
+<html>
+    <head>
+        <title>My Blog</title>
+        <style>
+            #menu {
+                width: 200px;
+                float: right;
+            }
+        </style>
+		<script language="JavaScript"> 
+            function startTime(){    
+                var today=new Date();//定义日期对象    
+                var year = today.getFullYear();//通过日期对象的getFullYear()方法返回年     
+                var month = today.getMonth()+1;//通过日期对象的getMonth()方法返回年     
+                var day = today.getDate();//通过日期对象的getDate()方法返回年      
+                var hour=today.getHours();//通过日期对象的getHours方法返回小时    
+                var minute=today.getMinutes();//通过日期对象的getMinutes方法返回分钟    
+                var second=today.getSeconds();//通过日期对象的getSeconds方法返回秒      
+                month=checkTime(month); 
+                day=checkTime(day); 
+                minute=checkTime(minute);    
+                second=checkTime(second);     
+                var week;//用于保存星期（getDay()方法得到星期编号）
+				switch(today.getDay()){
+					case 0:week="星期日";break;
+					case 1:week="星期一";break;
+					case 2:week="星期二";break;
+					case 3:week="星期三";break;
+					case 4:week="星期四";break;
+					case 5:week="星期五";break;
+					case 6:week="星期六";break;
+				}
+                document.getElementById('nowDateTimeSpan').innerHTML=year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second+"   "+week; 
+                setTimeout('startTime()',1000);//每秒重新加载startTime()方法  
+            }    
+            function checkTime(i){    
+                if (i<10){ 
+                    i="0"+i; 
+                }    
+                return i; 
+            }   
+        </script>
+    </head>
+    <body style="background-image:url(/static/i_main.jpg)" onload="startTime()">
+        <ul id="menu">
+            <li><a href="/" mce_href=""><input type="button" value="主页"></a></li>
+			$if not cookie().get('username'):
+				<li><a href="/admin" mce_href=""><input type="button" value="后台管理"></a></li>
+            $else:
+				$if not cookie().get('username')=='admin':
+					<li><a href="/new" mce_href="new"><input type="button" value="创建留言"></a></li>
+			$if cookie().get('username')=='admin':
+				<li><a href="/backstage" mce_href="backstage"><input type="button" value="后台界面"></a></li>
+				<li><a href="/usercontrol" mce_href="usercontrol"><input type="button" value="用户管理"></a></li>
+        </ul>
+		当前时间：<font color="#66CCFF"><span id="nowDateTimeSpan"></span></font>
+		$:page
+    </body>
+</html>

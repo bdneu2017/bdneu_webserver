@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--该文件为爬虫设置文件,处理接口在model.py中，如有需要可自行修改-->
+<data>
+	<!--爬虫的allow_domain设置-->
+    <option name="domain">tieba.baidu.com</option>
+	<!--主页面中下一页的url的xpath匹配表达式-->
+	<option name="next_page">//a[@class="next pagination-item "]/@href</option>
+	<!--主页面中需爬取的子页面的url的xpath匹配表达式-->
+	<option name="child_page">//a[@class="j_th_tit "]/@href</option>
+	<!--爬取的子页面的标题的xpath匹配表达式-->
+	<option name="title_pattern">//h3[@class="core_title_txt pull-left text-overflow  "]/text()</option>
+	<!--爬取的子页面的作者的xpath匹配表达式-->
+	<option name="author_pattern">//li[@class="d_name"]/a[@class="p_author_name j_user_card"]/text()</option>
+	<!--爬取的子页面的页面内容的xpath匹配表达式-->
+	<option name="content_pattern">//cc/div[@class="d_post_content j_d_post_content "]/text()</option>
+</data>

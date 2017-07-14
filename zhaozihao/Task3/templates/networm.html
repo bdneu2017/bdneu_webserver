@@ -1,0 +1,31 @@
+<html>
+	<body>
+		<center>
+		$if cookie().get('username')=='admin':
+			<h1 style="margin-top:90px;">百度贴吧爬虫</h1>
+			爬虫正在准备，按要求输入URL，或<a href="/backstage" mce_href="backstage"><input type="button" value="返回"></a>
+			<form action="" method="post">
+				<table>
+					<tr>
+						<td>
+							<textarea id="tiebaurl" name="tiebaurl" placeholder="请输入想要爬取的百度贴吧帖子的完整url,直接复制即可" size="22" rows=3 cols=40/  required="true"></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="submit" value="完成"/>
+							<input type="reset" value="清除"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<p>Note:爬虫只抓取楼主的发言(因为一条留言作者只有一个)</p>
+		$else:
+			<p>您未登录，没有权限访问此页面</p>3秒后自动返回主页...
+			<script language="javascript" type="text/javascript"> 
+				setTimeout("javascript:location.href='/'",3000); 
+			</script>
+			如果未能正常返回，请按此<a href="/" mce_href=""><input type="button" value="返回主页"></a>
+		</center>
+	</body>
+</html>

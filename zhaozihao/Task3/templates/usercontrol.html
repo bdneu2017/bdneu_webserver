@@ -1,0 +1,35 @@
+$def with (userlists)
+<html>
+	<body>
+		<center>
+		$if cookie().get('username')=='admin':
+			<h1 style="margin-top:90px;">用户管理</h1>
+			<tr>
+				<td>管理员$cookie().get('username')您好!</td>
+				<td><a href="/backstage" mce_href="backstage"><input type="button" value="返回"></a></td>
+				<td><a href="/adduser" mce_href="adduser"><input type="button" value="添加新用户"></a></td>
+			</tr><br/><br/><br/>
+			<table>
+					<tr>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">ID</td>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">&nbsp;用户名</td>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">&nbsp;密码</td>
+					</tr>
+			$for list in userlists:
+					<tr>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">$list.id</td>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">&nbsp;$list.username</td>
+						<td align="center" style="width:90px; height: 21px;" valign="middle">$list.password</td>
+						<td><a href="/change/$list.id" mce_href="change/$list.id"><input type="button" value="修改密码"></a></td>
+						<td><a href="/deleteuser/$list.id" mce_href="deleteuser/$list.id"><input type="button" value="删除"></a></td>
+					</tr>
+			<table>
+		$else:
+			<p>您没有权限访问此页面</p>3秒后自动返回主页...
+			<script language="javascript" type="text/javascript"> 
+				setTimeout("javascript:location.href='/'",3000); 
+			</script>
+			如果未能正常返回，请按此<a href="/" mce_href=""><input type="button" value="返回主页"></a>
+		</center>
+	</body>
+</html>

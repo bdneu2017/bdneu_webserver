@@ -1,0 +1,16 @@
+<data>
+	
+    <option name="domain">tieba.baidu.com</option>
+	
+	<option name="next_page">https://tieba.baidu.com/f?kw=tome&amp;ie=utf-8&amp;pn=\d+?</option>
+	
+	<option name="child_page">https://tieba.baidu.com/p/\d+?</option>
+	
+	<option name="other_child_page">https://tieba.baidu.com/p/\d+?\?pn=\d+?</option>
+	
+	<option name="title_pattern">//h3[@class="core_title_txt pull-left text-overflow  "]/text()</option>
+	
+	<option name="author_pattern">//li[@class="d_name"]/a[@class="p_author_name j_user_card"]/text()</option>
+	
+	<option name="content_pattern">//cc/div[@class="d_post_content j_d_post_content "]/text()</option>
+</data>
