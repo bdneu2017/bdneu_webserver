@@ -1,0 +1,101 @@
+{% block content %}
+<h1 align="center">{{posts["time"]}}</h1>
+<table border="2" bordercolor="black" width="600" cellspacing="0" cellpadding="5" align="center">  
+    <tr>  
+        <td  rowspan="100%">硬件数据</td> 
+        <td  colspan="2">CPU</td>  
+        <td>{{posts["cpu"]}}</td>  
+    </tr>  
+    <tr>  
+        <td  colspan="2">内存</td>  
+        <td>{{posts["memory"]}}</td>  
+    </tr>  
+    {% for disk in posts["disk"] %}
+    <tr>  
+        {% if loop.first %}
+        <td  rowspan="100%">磁盘</td>  
+        {% endif %}
+        <td>{{disk}}</td>  
+        <td>{{posts["disk"][disk]}}</td>  
+    </tr>  
+    {% endfor %}
+</table>  
+<table border="2" bordercolor="black" width="600" cellspacing="0" cellpadding="5" align="center">  
+    <tr>  
+        <td  rowspan="8" colspan="2">网络总数据</td> 
+        <td  rowspan="4">字节数</td>  
+        <td>总发送</td>  
+        <td>{{posts["total_bytes"]["sent"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>总接收</td>  
+        <td>{{posts["total_bytes"]["resv"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>发送速度</td>  
+        <td>{{posts["total_bytes_speed"]["sent"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>接收速度</td>  
+        <td>{{posts["total_bytes_speed"]["resv"]}}</td>  
+    </tr>  
+    <tr>   
+        <td  rowspan="4">数据包数</td>  
+        <td>总发送</td>  
+        <td>{{posts["total_pkt"]["sent"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>总接收</td>  
+        <td>{{posts["total_pkt"]["resv"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>发送速度</td>  
+        <td>{{posts["total_pkt_speed"]["sent"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>接收速度</td>  
+        <td>{{posts["total_pkt_speed"]["resv"]}}</td>  
+    </tr>  
+    {% for name in posts["sub_net"] %}
+    <tr>  
+        {% if loop.first %}
+        <td  rowspan="100%">各网络数据</td> 
+        {% endif %}
+        <td  rowspan="8">{{name}}</td>  
+        <td  rowspan="4">字节数</td>  
+        <td>总发送</td>  
+        <td>{{posts["sub_net"][name]["upload_bytes"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>总接收</td>  
+        <td>{{posts["sub_net"][name]["download_bytes"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>发送速度</td>  
+        <td>{{posts["sub_net"][name]["upload_bytes_speed"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>接收速度</td>  
+        <td>{{posts["sub_net"][name]["download_bytes_speed"]}}</td>  
+    </tr>  
+    <tr>   
+        <td  rowspan="4">数据包数</td>  
+        <td>总发送</td>  
+        <td>{{posts["sub_net"][name]["upload_pkt"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>总接收</td>  
+        <td>{{posts["sub_net"][name]["download_pkt"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>发送速度</td>  
+        <td>{{posts["sub_net"][name]["upload_pkt_speed"]}}</td>  
+    </tr>  
+    <tr>  
+        <td>接收速度</td>  
+        <td>{{posts["sub_net"][name]["download_pkt_speed"]}}</td>  
+    </tr>  
+    {% endfor %}
+</table>  
+
+{% endblock %}
