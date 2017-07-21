@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+</html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+		<center>
+        <h3 style="margin-top:110px;">在线聊天室</h3>
+        <div id="login">
+            <div>
+               服务器IP:127.0.0.1&nbsp;&nbsp;
+               服务器端口:9000&nbsp;
+                <input id="btnConnect" type="button" value="连接服务器" onclick="connect()" />
+            </div>
+            <div>
+                <textarea id="sendText" type="text" placeholder="发送消息" rows="5" cols="30"/></textarea>
+                <input id="btnSend" type="button" value="发送" onclick="send()" />
+            </div>
+            <div>
+                <div>
+                    即时消息
+                </div>
+                <textarea id="txtContent" cols="50" rows="20" readonly="readonly"></textarea>
+            </div>
+        </div>
+		</center>
+    </body>
+    <script>
+        var socket;
+        function connect() {
+            var host="ws://127.0.0.1:9000"
+            socket=new WebSocket(host);
+            try{
+                socket.onopen=function(msg){
+                    $$("btnConnect").disabled=true;
+                    alert("连接成功！");
+                };
+
+                socket.onmessage=function(msg){
+                    if(typeof msg.data=="string"){
+                        displayContent(msg.data);
+                    }
+                    else{
+                        alert("非文本消息");
+                    }
+                };
+                socket.onclose=function(msg){ alert("socket closed!") };
+            }
+            catch(error){
+                log(error);
+            }
+        }
+
+        function send(){
+            var msg=$$("sendText").value
+            socket.send(msg);
+        }
+
+        window.onbeforeunload=function(){
+            try {
+                socket.close();
+                socket=null;
+            }
+            catch(error){
+            }
+        };
+
+        function $$(id){ return document.getElementById(id); }
+
+        Date.prototype.Format=function(fmt){ //author: meizz 
+            var o={
+                "M+":this.getMonth()+1, //月份 
+                "d+":this.getDate(), //日 
+                "h+":this.getHours(), //小时 
+                "m+":this.getMinutes(), //分 
+                "s+":this.getSeconds(), //秒 
+                "q+":Math.floor((this.getMonth()+3)/3), //季度 
+                "S":this.getMilliseconds() //毫秒 
+            };
+            if(/(y+)/.test(fmt)) fmt=fmt.replace(RegExp.$$1,(this.getFullYear()+"").substr(4-RegExp.$$1.length));
+            for(var k in o)
+                if(new RegExp("("+k+")").test(fmt)) fmt=fmt.replace(RegExp.$$1,(RegExp.$$1.length==1)?(o[k]):(("00"+o[k]).substr((""+o[k]).length)));
+            return fmt;
+        }
+
+        function displayContent(msg){
+            $$("txtContent").value+="\r\n"+new Date().Format("yyyy/MM/dd hh:mm:ss")+":  "+msg;
+        }
+        function onkey(event){ if(event.keyCode == 13) { send(); } }
+    </script>
+</html>

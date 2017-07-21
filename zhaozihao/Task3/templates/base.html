@@ -45,14 +45,16 @@ $def with (page)
     <body style="background-image:url(/static/i_main.jpg)" onload="startTime()">
         <ul id="menu">
             <li><a href="/" mce_href=""><input type="button" value="主页"></a></li>
+			<li><a href="/chatroom" mce_href="chatroom" target="_blank"><input type="button" value="在线聊天室"></a></li>
 			$if not cookie().get('username'):
-				<li><a href="/admin" mce_href=""><input type="button" value="后台管理"></a></li>
+				<li><a href="/admin" mce_href="admin"><input type="button" value="后台管理"></a></li>
             $else:
 				$if not cookie().get('username')=='admin':
 					<li><a href="/new" mce_href="new"><input type="button" value="创建留言"></a></li>
 			$if cookie().get('username')=='admin':
 				<li><a href="/backstage" mce_href="backstage"><input type="button" value="后台界面"></a></li>
 				<li><a href="/usercontrol" mce_href="usercontrol"><input type="button" value="用户管理"></a></li>
+				<li><a href="/keyword" mce_href="keyword"><input type="button" value="关键字管理"></a></li>
         </ul>
 		当前时间：<font color="#66CCFF"><span id="nowDateTimeSpan"></span></font>
 		$:page

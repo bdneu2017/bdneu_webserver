@@ -1,0 +1,45 @@
+$def with (lists,count,dict)
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	</head>
+	<body>
+		<center>
+		$if cookie().get('username')=='admin':
+			<h1 style="margin-top:110px;">关键字列表</h1><br/>
+			列表选项:&nbsp;<a href="/backstage" mce_href="backstage"><input type="button" value="返回"></a>
+			<a href="/addkeyword" mce_href="addkeyword"><input type="button" value="添加关键字"></a></br></br>
+			已有留言中关键字TOP3</br>
+			$for n in range(3):
+				第$(n+1)位<input type="text" name="key_count1" value="$dict[n][0]" readonly="true" disabled="true" size="10">&nbsp;
+				数量:&nbsp;$dict[n][1]</br>
+			</br></br>
+			$for list in lists:
+				<table>
+					<tr>
+						<td>
+							关键字:<input type="text" name="key_word" value="$list.keyword" readonly="true" disabled="true" size="15">&nbsp;
+							是否邮件告警:
+							$if list.option==1:
+								是&nbsp;
+							$else:
+								否&nbsp;
+							统计数量(已有留言中):
+							$for i in count:
+								$if i==list.keyword:
+									$count[i]
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="/editkw/$list.id" mce_href="editkw/$list.id"><input type="button" value="修改规则"></a>
+							<a href="/deletekw/$list.id" mce_href="deletekw/$list.id"><input type="button" value="删除规则"></a>
+						</td>
+					</tr>
+				</table>
+				<br/><br/>
+		$else:
+			您没有权限访问此页面!<a href="/" mce_href=""><input type="button" value="返回"></a>
+		</center>
+	</body>
+</html>

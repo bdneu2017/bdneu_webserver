@@ -23,6 +23,12 @@ urls = (# url映射
     '/logout', 'Logout',#退出登录
     '/register','Register',#注册用户
     '/exitserver','ExitServer',#停止服务器程序
+    '/keyword','KeyWord',#关键字过滤设置
+    '/addkeyword','AddKeyWord',#添加关键字
+    '/editkw/(\d+)','EditKW',#修改关键字
+    '/deletekw/(\d+)','DeleteKW',#删除关键字
+    '/chatroom','ChatRoom',#在线聊天室,未完成
+    '/chatstart','ChatStart',#启动聊天服务器
 )
 
 app=web.application(urls,globals())
@@ -36,8 +42,9 @@ render=web.template.render('templates',base='base',globals=t_globals)
 
 class Index:#登录类
 	def GET(self):
+		refunc=model.ReplaceKeyword()
 		posts=model.get_posts()
-		return render.index(posts)
+		return render.index(posts,refunc)
 
 	def POST(self):
 		flag_loginfail=1
@@ -75,8 +82,9 @@ class Admin:#管理员类
 
 class Backstage:#后台管理界面类
 	def GET(self):
+		refunc=model.ReplaceKeyword()
 		posts=model.get_posts()
-		return render.backstage(posts)
+		return render.backstage(posts,refunc)
 
 class UserControl:#用户管理类
 	def GET(self):
@@ -155,15 +163,43 @@ class Change_xml:#修改Scrapy爬虫设置
 		root[6].text=web.input().content_pattern
 		tree.write(XML_NAME)
 		raise web.seeother('/networm_plus')
-		
+
+class KeyWord:#管理关键字
+	def GET(self):
+		count=model.count_keyword()
+		dict=sorted(count.items(),key=lambda d:d[1],reverse=True)
+		key_w=model.sel_keyword()
+		return render.keyword(key_w,count,dict)
+
+class AddKeyWord:#添加关键字
+	def GET(self):
+		return render.addkeyword()
+	
+	def POST(self):
+		model.new_keyword(web.input().newkeyword,web.input().alert_mail)
+		raise web.seeother('/keyword')
+
+class EditKW:#修改关键字
+	def GET(self,id):
+		keywd=model.get_keyword(int(id))
+		return render.editkw(keywd.keyword)
+	
+	def POST(self,id):
+		model.new_keyword(web.input().newkeyword,web.input().alert_mail)
+		raise web.seeother('/keyword')		
+
+class DeleteKW:# 删除关键字
+    def GET(self,id):
+        model.del_keyword(int(id))
+        raise web.seeother('/keyword')		
 
 class New:# 新建留言类
     def GET(self):
         return render.new()
 
     def POST(self):
-        model.new_post(web.cookies().get('username'),web.input().post_title,web.input().post_text)
-        raise web.seeother('/')
+		model.new_post(web.cookies().get('username'),web.input().post_title,web.input().post_text)
+		raise web.seeother('/')
 
 class Delete:# 删除留言类
     def GET(self,id):
@@ -185,6 +221,17 @@ class Edit:# 编辑留言类
             raise web.seeother('/backstage')
         else:
             raise web.seeother('/')
+
+class ChatRoom:#在线聊天系统
+	def GET(self):
+		return render.chatroom()
+
+class ChatStart:#启动聊天服务器
+	def GET(self):
+		server=model.websocket_server(9000)
+		server.start()
+		raise web.seeother('/backstage')
+			
 
 class Logout:# 退出登录
     def GET(self):
