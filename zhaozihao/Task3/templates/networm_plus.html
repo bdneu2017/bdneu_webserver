@@ -2,14 +2,14 @@
 	<body>
 		<center>
 		$if cookie().get('username')=='admin':
-			<h1 style="margin-top:90px;">Scrapy爬虫</h1>
+			<h1 style="margin-top:110px;">Scrapy爬虫</h1>
 			<a href="/change_xml" mce_href="change_xml"><input type="button" value="修改设置(Scrapy)"></a></br>
 			爬虫正在准备，按要求输入起始URL，或<a href="/backstage" mce_href="backstage"><input type="button" value="返回"></a>
 			<form action="" method="post">
 				<table>
 					<tr>
 						<td>
-							<textarea id="starturl" name="starturl" placeholder="请输入想要爬取的网页(不修改设置默认是百度贴吧的url)的url,直接复制即可" size="22" rows=3 cols=40/  required="true"></textarea>
+							<textarea id="starturl" name="starturl" placeholder="请输入想要爬取的网页(未修改设置时默认为百度贴吧)的url,直接复制即可" size="22" rows=3 cols=40/  required="true"></textarea>
 						</td>
 					</tr>
 					<tr>
