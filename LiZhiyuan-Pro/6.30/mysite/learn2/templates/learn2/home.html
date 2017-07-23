@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>欢迎光临</title>
+<script>
+function get_info()
+{
+	document.write("当前服务器系统资源信息：{{ info }}")
+}
+</script>
+</head>
+<body>
+<button type="button" onclick="alert('{{ t_now }}')">获取当前时间</button><br>
+<!--<button type="button" onclick="get_info()">获取服务器系统信息</button><br-->
+<p>当前服务器系统资源信息：</p>
+{% for key, value in info.items %}
+    {{ key }}: {{ value }} <br>
+{% endfor %}
+</body>
+</html>

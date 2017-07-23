@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>自强学堂</title>
+</head>
+<body
+<br>
+<a href=_top> 返回</a>
+<a href="{% url 'add2' 4 5 %}">link</a>
+<br> 服务器当前用户是：{{ request.user }}
+<br> 当前网址是：{{ request.path }}
+<br> 当前get参数是：{{ request.GET.urlencode }}<br>
+<a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a>
+{% comment "Optional note" %}
+    <p>Commented out text with {{ create_date|date:"c" }}</p>
+{% endcomment %}
+{% autoescape on %}
+    {{ body }}
+{% endautoescape %}
+</body>
+</html>

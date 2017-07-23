@@ -1,0 +1,92 @@
+﻿{% extends 'sysinfo/base.html' %}
+
+{% block title %}
+    墨坊—留言版快
+{%endblock%}
+{% block content %}
+<body>
+<hr><h1>欢迎来到留言版块
+<div align="right" style="font-size:15px">欢迎：{{ username }}</div>
+<div align="right"><a href="/" style="font-size:10px">返回首页</a></div><h1><hr>
+<script type="text/JavaScript">
+	var pageSize=3;
+	var curPage=0;
+	var lastPage;
+	var direct=0;
+	var len;
+	var page;
+	var begin;
+	var end;
+	
+	</script>
+<form action="/form2db/" method="post">
+	{% csrf_token %}
+	<span style="font-size:17px">请留下相关信息</span>
+	<br>
+	<label>
+	<span style="font-size:16px">名称 :</span>
+	<input id="name" type="text" name="name" value={{ username }} />
+	</label>
+	<br>
+	<label>
+	<span style="font-size:16px">标题 :</span>
+	<input id="title" type="text" name="title" placeholder="Title of Message" />
+	</label>
+	<br>
+	<label>
+	<span style="font-size:16px">邮件 :</span>
+	<input id="email" type="email" name="email" value={{ email }} />
+	</label>
+	<br>
+	<label>
+	<span style="font-size:16px">内容 :</span>
+	<textarea id="content" name="content" placeholder="Your Message to Us"></textarea>
+	</label>
+	<label>
+	<span >&nbsp;</span>
+	<input type="submit" value="提交">
+	</label>
+</form>
+<hr><h3>留言记录</h3><hr>
+{% for post in posts %}
+        <h4>{{ post.title }}</h4>
+        <p>留言时间：{{ post.pub_date }}  发表人：{{ post.name }}</p>
+        <p>{{ post.content }}</p>
+        <hr />
+    {% endfor %}
+		<a id="btn0"></a>
+		<input id="pageSize" type="text" size="1" maxlength="2" value="getDefaultValue()"/><a> 条 </a> <a href="#" id="pageSizeSet">设置</a> 
+		<a id="sjzl"></a> 
+		<a  href="#top" id="btn1">首页</a>
+		<a  href="#" id="btn2">上一页</a>
+		<a  href="#" id="btn3">下一页</a>
+		<a  href="#" id="btn4">尾页</a> 
+		<a>转到 </a>
+		<input id="changePage" type="text" size="1" maxlength="4"/>
+		<a>页 </a>
+		<a  href="#" id="btn5">跳转</a>
+    {% if is_paginated %}
+        <table>
+            <tr>
+                {% if has_previous %}
+                <td><a href="?page={{ previous }}">&lt;&lt; 上一页 </a></td>
+                {% endif %}
+                {% if has_next %}
+                <td><a href="?page={{ next }}"> 下 一 页 &gt;&gt;</a></td>
+                {% endif %}
+                <td> 第 {{ page }} 页,共 {{ pages }} 页 </td>
+                <form action="." method="get">
+                <td>&nbsp;&nbsp; 到第 </td>
+                <td><input name="page" type="text" size="2"></td>
+                <td> 页 </td>
+                <td><input type="submit" value=" 跳转 "></td>
+            </tr>
+        </table>
+    {% endif %}
+	
+	        <p>示例弹出层：<a href = "JavaScript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">请点这里</a></p> 
+        <div id="light" class="white_content">这是一个层窗口示例程序. 
+<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">点这里关闭本窗口</a></div> 
+        <div id="fade" class="black_overlay"></div> 
+</body>
+{% endblock %}
