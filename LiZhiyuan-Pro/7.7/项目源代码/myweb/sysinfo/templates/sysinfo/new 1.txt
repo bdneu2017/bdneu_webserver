@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>墨坊</title>
+	
+	<script>
+		function displayDate()
+		{
+		 window.location.assign("/info")
+		}
+	</script>
+</head>
+<body>
+<div align="middle">
+<hr><h1>欢迎来到墨坊留言系统!<h1></hr>
+<hr>
+<h4><li><a href="{% url 'get_info' %}">点我获取服务器相关信息</a></li></h4>
+<h5><li><button type="button" onclick="displayDate()">也可以点我获取服务器相关信息</button></li></h5>
+<h5><li><a href="{% url 'messageboard' %}">任务二：去留言吧</a></li></h5>
+<h5><li><a href="{% url 'messageboard' %}">任务三：先注册/登陆再留言</a></li></h5>
+<h5><li><a href="admin/">后台管理</a></li></h5>
+<h5><li><a href="{% url 'add_form' %}">表单测试</a></li></h5>
+<h5><li><a href="{% url 'djforms' %}">django表单测试</a></li></h5>
+<h5><li><a href="{% url 'djajax1' %}">djangoAjax测试1</a></li></h5>
+<h5><li><a href="{% url 'djajax2' %}">djangoAjax测试2</a></li></h5>
+<h5><li><a href="{% url 'email' %}">给站长留言</a></li></h5>
+<a href="base_models/">基础模板</a>
+</div>
+</body>
+</html>

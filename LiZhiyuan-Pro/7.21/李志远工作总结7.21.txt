@@ -1,0 +1,9 @@
+这周我的工作总结：
+	1.继续学习scrapy框架：把scrapy嵌入到django项目中
+	2.学bootstrap框架：自己写的前端感觉不太美观，学习bootstrap优化一下，下载django-bootstrap-toolkit，并创建
+	3.django默认后台管理界面的深入学习，admin.Modeladmin类的学习并运用，包括设置过滤器，自定义展示字段，在应
+	用的admin.py中自定义应用的一些基本属性，使其在后台中以我想要的形式展示在后台中。
+	4.django admin 扩展 自定义后台管理界面，深入理解django后台原理。
+	
+	我的设想是：最终是django框架为主体，前端用bootstrap框架来开发（运用django-bootstrap-toolkit）,爬虫部分用
+	scrapy框架来开发。最终将留言信息和课程信息（我爬取的是极客学院的课程信息）动态展示在相关页面。关键字过滤部分展示在后台管理中。

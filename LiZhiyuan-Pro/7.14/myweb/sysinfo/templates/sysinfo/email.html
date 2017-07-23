@@ -1,0 +1,21 @@
+﻿{% extends 'sysinfo/base.html' %}
+
+{% block title %}
+给站长写信
+{%endblock%}
+
+{% block content %} 
+<body>
+<h3>Send e-mail to author: <div align="right"><a href="/" style="font-size:10px">返回首页</a></div></h3>
+<form action="MAILTO:995852985@qq.com" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name" value="your name"><br>
+E-mail:<br>
+<input type="text" name="mail" value="your email"><br>
+Comment:<br>
+<input type="text" name="comment" value="your comment" size="50"><br><br>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+</body>
+{%endblock%}

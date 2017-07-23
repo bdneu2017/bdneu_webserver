@@ -1,0 +1,6 @@
+Fri, 23 Jun 2017 00:41:38 getSysInfo2Mysql.py[line:34] 15092 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 00:41:38 getSysInfo2Mysql.py[line:37] 15092 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 00:41:40 getSysInfo2Mysql.py[line:34] 15092 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 00:41:40 getSysInfo2Mysql.py[line:37] 15092 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 00:41:42 getSysInfo2Mysql.py[line:34] 15092 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 00:41:42 getSysInfo2Mysql.py[line:37] 15092 checkThreshold WARNING memory is in risk
