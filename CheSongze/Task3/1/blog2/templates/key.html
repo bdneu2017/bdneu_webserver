@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <ul class=entries>
+  
+    <table border="2" bordercolor="grey" cellspacing="0" cellpadding="5" align="center">  
+    {% for entry in entries %}
+        <tr>  
+            <td colspan="3">{{entries}}</td> 
+        </tr>  
+    {% endfor %}
+    </table>  
+    
+  </ul>
+{% endblock %}
