@@ -1,0 +1,88 @@
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:34] 25980 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:37] 25980 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk C:\ is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk D:\ is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接出流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1入流量is in risk
+Fri, 23 Jun 2017 10:16:56 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:34] 25980 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:37] 25980 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk C:\ is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk D:\ is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接出流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1入流量is in risk
+Fri, 23 Jun 2017 10:16:58 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:34] 25980 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:37] 25980 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk C:\ is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk D:\ is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接出流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1入流量is in risk
+Fri, 23 Jun 2017 10:17:00 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:34] 25980 checkThreshold WARNING cpu is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:37] 25980 checkThreshold WARNING memory is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk C:\ is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:42] 25980 checkThreshold WARNING disk D:\ is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网 2出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING WLAN出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 3出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 以太网出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet1出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING VMware Network Adapter VMnet8出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 本地连接* 12出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING 蓝牙网络连接出流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1入流量is in risk
+Fri, 23 Jun 2017 10:17:02 getSysInfo2Mysql.py[line:48] 25980 checkThreshold WARNING Loopback Pseudo-Interface 1出流量is in risk

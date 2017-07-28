@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="600">
+<title>留言板</title>
+
+</head>
+<body>
+<h2>留言</h2>
+<form action="/updatew" method="post">
+	标题：<input type="text" name="title"></br>
+	内容：<input type="text" name="content"></br>
+	<button type="submit">提交</button>
+</form>
+
+	 
+{% for message in get_flashed_messages() %}
+{{message}}
+{% endfor %}
+
+<h4>历史留言: </h4>
+
+{% if history %} 
+{% for row in history %}
+<p>
+{{row}}
+</p>
+
+{% endfor %}
+{% else %}
+<p>未能获得信息</p>
+{% endif %}
+
+{% if result %}
+{{result}}
+{% endif%}
+
+<h4>爬虫爬取信息：</h4>
+{% if info %}
+{% for line in info %}
+<p>{{line}}</p>
+{% endfor %}
+{% endif　%}
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿{% extends 'sysinfo/base.html' %}
+
+{% block title %}
+django表单测试
+{%endblock%}
+
+{% block content %}
+<body>
+<form method='post'>
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="提交">
+</form>
+</body>
+{%endblock%}
+

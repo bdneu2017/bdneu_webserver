@@ -1,0 +1,31 @@
+﻿
+    
+{% extends 'sysinfo/base.html' %}
+服务器信息
+{% block title %}
+{%endblock%}
+
+{% block content %}
+
+	<script>
+	function displayDate()
+	{
+		document.getElementById("demo").innerHTML=Date();
+	}
+	</script>
+</head>
+<body>
+
+<hr><h3>服务器相关信息<h3>
+<div align="right"><a href="/" style="font-size:10px">返回首页</a></div>
+<hr>
+
+{% for key,value in info.items %}
+	{{ key }}:{{ value }}<br>
+{% endfor %}
+<hr>
+<button type="button" onclick="displayDate()">显示时间</button>
+<p id="demo"></p>
+
+</body>
+{%endblock%}

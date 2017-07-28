@@ -1,0 +1,47 @@
+﻿{% extends 'sysinfo/base.html' %}
+
+{% block title %}
+    墨坊
+{%endblock%}
+{% block content %}
+
+	<script>
+		function displayDate()
+		{
+		 window.location.assign("/info")
+		}
+	</script>
+
+	<style type='text/css'>
+		.class0{text-align:middle}
+		.class1{color:blue;text-align:left;font-size:16px}
+	    .class2{color:blue;text-align:left;font-size:16px}
+		.class3{color:blue;text-align:left;font-size:16px}
+		.class4{color:blue;text-align:left;font-size:16px}
+		.class5{color:blue;text-align:left;font-size:16px}
+		.class6{color:blue;text-align:left;font-size:16px}
+</style>
+<div align="middle"><hr><h1 class="class0">欢迎来到墨坊留言系统!<h1><hr></div>
+<div style="position:absolute;left:40%">
+
+
+<!--
+<h5 class="class1"><li><button type="button" onclick="displayDate()">点我获取服务器相关信息</button></li></h5>
+-->
+<h5 class="class2"><li><a href="{% url 'get_info' %}">任务一:点我获取服务器相关信息</a></li></h5>
+<h5 class="class3"><li><a href="{% url 'messageboard' %}">任务二：去留言吧</a></li></h5>
+<h5 class="class4"><li><a href="{% url 'accounts' %}">任务三：先注册/登陆再留言</a></li></h5>
+<h5 class="class5"><li><a href="admin/">任务四:后台管理</a></li></h5>
+
+
+<!--
+<h5><li><a href="{% url 'add_form' %}">表单测试</a></li></h5>
+<h5><li><a href="{% url 'djforms' %}">django表单测试</a></li></h5>
+<h5><li><a href="{% url 'djajax1' %}">djangoAjax测试1</a></li></h5>
+<h5><li><a href="{% url 'djajax2' %}">djangoAjax测试2</a></li></h5>
+-->
+<h5 class="class6"><li><a href="{% url 'email' %}">给站长留言</a></li></h5>
+<!--<a href="base_models/" style="font-size:16px">基础模板</a>-->
+</div>
+{%endblock%}
+
