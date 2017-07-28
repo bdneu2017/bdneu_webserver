@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>主页</title>
+</head>
+<body>
+<h2>主页</h2>
+<p>
+<p><a href="/admin">管理员系统</a></p>
+<a href="/login"> 登录</a>
+<a href="/logout">退出</a>
+<a href="/words">留言</a>
+<a href="/register">注册</a>
+<a href="/chat">在线聊天</a>
+</p>
+<p>
+{% for message in get_flashed_messages() %}
+{{message}}
+{% endfor %}
+</p>
+</body>
+</html>
