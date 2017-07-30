@@ -14,16 +14,16 @@ $def with (posts,refunc)
 		<h1 style="margin-top:110px;">后台管理界面</h1><br/>
 		$if cookie().get('username')=='admin':
 			管理员选项:&nbsp;<a href="/logout" mce_href="logout"><input type="button" value="退出登录"></a>
-			<a href="/changeadmin" mce_href="changeadmin"><input type="button" value="修改密码"></a><br/><br/>
+			<a href="/changeadmin" mce_href="changeadmin"><input type="button" value="修改管理员密码"></a><br/><br/>
 			<a href="/networm" mce_href="networm"><input type="button" value="启动爬虫(百度贴吧)"></a>
 			<a href="/networm_plus" mce_href="networm_plus"><input type="button" value="启动爬虫(Scrapy)"></a>
 			<a href="/chatstart" mce_href="chatstart"><input type="button" id="chat" value="启动聊天服务器" onclick="disclick()"></a>
 			<a href="/exitserver" mce_href="exitserver"><input type="button" value="停止网站服务器并退出" onclick="window.close();"></a><br/><br/>
 			$for post in posts:
-				<table>
+				<table border="1">
 					<tr>
 						<td>
-							作者:<input type="text" name="post_author" value="$post.author" readonly="true" disabled="true" size="15">&nbsp;
+							作者:<input type="text" name="post_author" value="$post.author" readonly="true" disabled="true" size="15">&nbsp;&nbsp;
 							标题:<input type="text" name="post_title" value="$post.title" readonly="true" disabled="true" size="40">
 						</td>
 					</tr>

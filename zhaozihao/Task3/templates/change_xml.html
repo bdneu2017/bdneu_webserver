@@ -5,7 +5,7 @@ $def with(xml)
 		$if cookie().get('username'):
 			<h1 style="margin-top:110px;">Scrapy爬虫设置</h1>
 				<form action="" method="post">
-					<table> 
+					<table border="1"> 
 						$for child in xml:
 							<tr>
 								<td>$child.get('name')</td>

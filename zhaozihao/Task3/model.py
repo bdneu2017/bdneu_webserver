@@ -200,14 +200,14 @@ def send_mail(send_to,subject,body,smtp_server,username,password,cc=None,bcc=Non
         web.config.smtp_username=username   ##邮件服务器的登录名
         web.config.smtp_password=password   ##邮件服务器的登录密码
         web.config.smtp_starttls=True
-        send_from=username+'@'+smtp_server   ##发送的邮件
+        send_from=username   ##发送的邮件
         web.sendmail(send_from,send_to,subject,body,cc=cc,bcc=bcc)
         return 1  #pass
     except Exception,error:
         print error
         return -1 #fail		
 
-global clients
+global clients#存放客户端线程数据
 clients={}
 
 #通知客户端
@@ -217,12 +217,12 @@ def notify(message):
 
 #客户端处理线程
 class websocket_thread(threading.Thread):
-    def __init__(self,connection,username):
+    def __init__(self,connection,username):#初始化连接套接字和用户名字
         super(websocket_thread, self).__init__()
         self.connection=connection
         self.username=username
     
-    def run(self):
+    def run(self):#客户端与服务器建立连接
         print 'new client joined!'
         recvbuf=self.connection.recv(1024)
         headers=self.parse_headers(recvbuf)
@@ -235,8 +235,8 @@ class websocket_thread(threading.Thread):
         while True:
             try:
                 recvbuf=self.connection.recv(1024)
-            except socket.error,error:
-                print "unexpected error: ",error
+            except socket.error,error:#客户端断开连接
+                print "unexpected error:client close conneion",error
                 clients.pop(self.username)
                 break
             recvbuf=self.parse_data(recvbuf)
@@ -245,7 +245,7 @@ class websocket_thread(threading.Thread):
             message=self.username+": "+recvbuf
             notify(message)
             
-    def parse_data(self,message):
+    def parse_data(self,message):#处理数据
         v=ord(message[1])&0x7f
         if v==0x7e:
             p=4
@@ -257,22 +257,22 @@ class websocket_thread(threading.Thread):
         data=message[p+4:]
         return ''.join([chr(ord(v)^ord(mask[k%4])) for k,v in enumerate(data)])
         
-    def parse_headers(self,message):
+    def parse_headers(self,message):#处理发送信息的头部
         headers={}
-        header,data=message.split('\r\n\r\n', 1)
+        header,data=message.split('\r\n\r\n',1)
         for line in header.split('\r\n')[1:]:
-            key,value=line.split(': ', 1)
+            key,value=line.split(': ',1)
             headers[key]=value
         headers['data']=data
         return headers
 
-    def generate_token(self,message):
+    def generate_token(self,message):#生成websocket连接用的key
         key=message+'258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
         ser_key=hashlib.sha1(key).digest()
         return base64.b64encode(ser_key)
 
 #服务端
-class websocket_server(threading.Thread):
+class websocket_server(threading.Thread):#服务端程序，建立套接字并等待连接
     def __init__(self,port):
         super(websocket_server,self).__init__()
         self.port=port
@@ -294,10 +294,9 @@ class websocket_server(threading.Thread):
                 print 'Connection timeout!'
 
 if __name__=="__main__":#测试模块
-	sel=raw_input("select:")
-	if sel=='a':
-		s=ChatRoom_func()
-		s.server_main()
-	if sel=='b':
-		c=ChatRoom_func()
-		c.client_main()
+	send_to = ['someone']     
+	subject = '邮件标题'  
+	body = '邮件内容\n可以有回车'  
+	cc = ['someone']   ##抄送  
+	bcc = ['someone']  ##密抄
+	send_mail(send_to,subject,body,'someone','someone','someone',cc,bcc)

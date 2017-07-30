@@ -1,6 +1,7 @@
 <html>
 	<body>
 		<center>
+		$if cookie().get('username')=='admin':
 			<h1 style="margin-top:110px;">添加关键字</h1>
 			<table>
 			<form action="" method="post">
@@ -28,6 +29,8 @@
 						</td>
 					</tr>
 				</table>
+		$else:
+			您没有权限访问此页面!<a href="/" mce_href=""><input type="button" value="返回"></a>
 		</center>
 	</body>
 </html>

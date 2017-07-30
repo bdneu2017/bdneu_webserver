@@ -29,6 +29,8 @@ urls = (# url映射
     '/deletekw/(\d+)','DeleteKW',#删除关键字
     '/chatroom','ChatRoom',#在线聊天室,未完成
     '/chatstart','ChatStart',#启动聊天服务器
+    '/startsendmail','StartSendMail',#打开发送邮件报警功能
+	'/closesendmail','CloseSendMail',#关闭发送邮件报警功能
 )
 
 app=web.application(urls,globals())
@@ -48,6 +50,7 @@ class Index:#登录类
 
 	def POST(self):
 		flag_loginfail=1
+		refunc=model.ReplaceKeyword()
 		posts=model.get_posts()
 		login_user=model.get_users()
 		for user in login_user:
@@ -55,7 +58,7 @@ class Index:#登录类
 				flag_loginfail=0
 				web.setcookie('username',web.input().login_username)
 		if flag_loginfail:
-			return render.index(posts)
+			return render.index(posts,refunc)
 		raise web.seeother('/')
 
 class Register:#注册用户类
@@ -80,10 +83,24 @@ class Admin:#管理员类
 				web.setcookie('username',web.input().admin_username)
 		raise web.seeother('/admin')
 
+mail_info={'send_to':0,'stmp_server':0,'username':0,'password':0,'flag':0}
+
 class Backstage:#后台管理界面类
 	def GET(self):
 		refunc=model.ReplaceKeyword()
 		posts=model.get_posts()
+		if mail_info['flag']==1:
+			key_temp=model.sel_keyword()
+			count=model.count_keyword()
+			for list in key_temp:
+				for n in count:
+					if count[n]>0 and n==list.keyword:
+						if list.option==0:
+							continue
+						else:
+							model.send_mail(mail_info['send_to'],"Warning:Find Keyword"+n,"留言中发现目标关键字："+n,
+							                mail_info['stmp_server'],mail_info['username'],mail_info['password'],mail_info['username'],mail_info['username'])
+							break
 		return render.backstage(posts,refunc)
 
 class UserControl:#用户管理类
@@ -140,7 +157,7 @@ class NetWorm_plus:#爬虫-Scrapy
 	
 	def POST(self):
 		start_url=str(web.input().starturl)
-		os.system('python main.py -u '+'"'+start_url+'"')
+		os.system('python spider.py -u '+'"'+start_url+'"')
 		raise web.seeother('/backstage')
 
 class Change_xml:#修改Scrapy爬虫设置
@@ -185,7 +202,7 @@ class EditKW:#修改关键字
 		return render.editkw(keywd.keyword)
 	
 	def POST(self,id):
-		model.new_keyword(web.input().newkeyword,web.input().alert_mail)
+		model.update_keyword(int(id),web.input().newkeyword,web.input().alert_mail)
 		raise web.seeother('/keyword')		
 
 class DeleteKW:# 删除关键字
@@ -242,7 +259,7 @@ def notfound():# 定义404
     return web.notfound("sorry,the page you were looking for was not found")
 app.notfound=notfound
 
-class ExitServer:
+class ExitServer:#关闭网站服务器
 	def GET(self):
 		print "\n---服务器已正常停止工作---".decode('utf-8')
 		time.sleep(0.5)

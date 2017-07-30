@@ -12,11 +12,11 @@ $def with (posts,refunc)
 				<form action="" method="post">
 					<tr>
 						<td><label for="txtname">请输入您的账号：</label></td>
-						<td><input type="text" id="txtname" name="login_username" placeholder="用户名" size="22"/></td>
+						<td><input type="text" id="txtname" name="login_username" placeholder="用户名" size="22" required="true"/></td>
 					</tr>
 					<tr>
 						<td><label for="txtpswd">请输入您的密码：</label></td>
-						<td><input type="password" id="txtpswd" name="login_password" placeholder="密码" size="22"/></td>
+						<td><input type="password" id="txtpswd" name="login_password" placeholder="密码" size="22" required="true"/></td>
 					</tr>
 					<tr>
 						<td colspan=2>
@@ -38,7 +38,7 @@ $def with (posts,refunc)
 				<h1 style="margin-top:110px;">主页</h1>
 				欢迎用户$cookie().get('username')!<a href="/logout" mce_href="logout"><input type="button" value="退出登录"></a><br/><br/>
 				$for post in posts:
-					<table>
+					<table border="1">
 						<tr>
 							<td>
 								作者:<input type="text" name="post_author" value="$post.author" readonly="true" disabled="true" size="15">&nbsp;
