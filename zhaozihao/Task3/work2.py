@@ -27,10 +27,10 @@ urls = (# url映射
     '/addkeyword','AddKeyWord',#添加关键字
     '/editkw/(\d+)','EditKW',#修改关键字
     '/deletekw/(\d+)','DeleteKW',#删除关键字
-    '/chatroom','ChatRoom',#在线聊天室,未完成
+    '/chatroom','ChatRoom',#在线聊天室
     '/chatstart','ChatStart',#启动聊天服务器
-    '/startsendmail','StartSendMail',#打开发送邮件报警功能
-	'/closesendmail','CloseSendMail',#关闭发送邮件报警功能
+    '/mailoption','MailOption',#打开/关闭发送邮件报警功能
+    '/optionclear','OptionClear',#如果打开了邮件报警功能又未输入报警邮件信息，则自动关闭该功能
 )
 
 app=web.application(urls,globals())
@@ -98,10 +98,30 @@ class Backstage:#后台管理界面类
 						if list.option==0:
 							continue
 						else:
-							model.send_mail(mail_info['send_to'],"Warning:Find Keyword"+n,"留言中发现目标关键字："+n,
-							                mail_info['stmp_server'],mail_info['username'],mail_info['password'],mail_info['username'],mail_info['username'])
+							model.send_mail(mail_info['send_to'],"Warning:Find Keyword"+n,"留言中发现目标关键字："+n,mail_info['stmp_server'],mail_info['username'],mail_info['password'],mail_info['username'],mail_info['username'])
 							break
 		return render.backstage(posts,refunc)
+
+class MailOption:#设置报警邮件
+	def GET(self):
+		if mail_info['flag']==0:
+			mail_info['flag']=1
+			return render.mainoption()
+		else:
+			mail_info['flag']=0
+			raise web.seeother('/keyword')
+
+	def POST(self):
+		mail_info['send_to']=web.input().send_to
+		mail_info['stmp_server']=web.input().stmpsever
+		mail_info['username']=web.input().username
+		mail_info['password']=web.input().password
+		raise web.seeother('/keyword')
+
+class OptionClear:#如果打开了邮件报警功能又未输入报警邮件信息，则自动关闭该功能
+	def GET(self):
+		mail_info['flag']=0	
+		raise web.seeother('/keyword')
 
 class UserControl:#用户管理类
 	def GET(self):

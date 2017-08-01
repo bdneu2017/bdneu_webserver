@@ -9,6 +9,7 @@ $def with (lists,count,dict)
 			<h1 style="margin-top:110px;">关键字列表</h1><br/>
 			列表选项:&nbsp;<a href="/backstage" mce_href="backstage"><input type="button" value="返回"></a>
 			<a href="/addkeyword" mce_href="addkeyword"><input type="button" value="添加关键字"></a></a></br></br>
+			<a href="/mailoption" mce_href="mailoption"><input type="button" value="打开/关闭发送邮件报警"></a></a></br></br>
 			已有留言中关键字TOP3</br>
 			$for n in range(3):
 				第$(n+1)位<input type="text" name="key_count1" value="$dict[n][0]" readonly="true" disabled="true" size="10">&nbsp;

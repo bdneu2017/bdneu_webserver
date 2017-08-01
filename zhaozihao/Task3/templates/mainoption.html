@@ -1,0 +1,45 @@
+<html>
+	<body>
+		<center>
+		$if cookie().get('username')=='admin':
+			<h1 style="margin-top:110px;">邮箱设置</h1>
+			<table>
+			<form action="" method="post">
+					<tr>
+						<td>
+							<label for="txtname">接收邮箱地址：</label>
+							<input type="text" id="1" name="send_to" placeholder="xxx@xxx.com" size="15" required="true"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="txtname">STMP服务器：</label>&nbsp;
+							<input type="text" id="2" name="stmpsever" placeholder="STMP邮件服务器" size="15" required="true"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="txtname">邮箱用户名：</label>&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="text" id="3" name="username" placeholder="用户名" size="15" required="true"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="txtname">邮箱登录密码：</label>
+							<input type="text" id="4" name="password" placeholder="密码" size="15" required="true"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan=2>
+							<input type="submit" value="完成"/>
+							<input type="reset" value="清除"/>
+			</form>
+							<a href="/optionclear" mce_href="optionclear"><input type="button" value="返回"></a>
+						</td>
+					</tr>
+				</table>
+		$else:
+			您没有权限访问此页面!<a href="/" mce_href=""><input type="button" value="返回"></a>
+		</center>
+	</body>
+</html>
