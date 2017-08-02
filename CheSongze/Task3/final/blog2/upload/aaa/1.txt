@@ -1,0 +1,14 @@
+POST /register/ HTTP/1.1
+Host: 172.16.15.10:5000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 23
+Referer: http://172.16.15.10:5000/register/
+Cookie: session=.eJwVzLEOgjAQANBfMf0CLbKYOGAqDSbXS02B3C0mYiI9YAZq_HdxeOv7qEd8qdNH7Z7qpNhWiwtdRqkUZ68LhXGkyR_-sC0jmrIHaUYMfnGmiZC6PbU8oKW9kz66FnK09UyhPm7XDOGq0fgV9G3i9i6k3QSmy9AUKyVaQSBnaXo0twiWJ7RVDjLMlOrkhI6gfUaaB95uNsXCwWsXLsLyPqvv9wfTkj5T.DGF9Tw.40lL-aX1IikQIGxJOoopovQI5Us
+Connection: close
+Upgrade-Insecure-Requests: 1
+
+username=aa&password=aa

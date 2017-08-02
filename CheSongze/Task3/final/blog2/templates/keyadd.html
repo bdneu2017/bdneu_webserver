@@ -1,0 +1,49 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="/admin/keymanage/">列表</a>
+        </li>
+        <li class="active">
+            <a href="javascript:void(0)">创建</a>
+        </li>
+    </ul>
+
+    <form action="{{ url_for('keyadd.add_key') }}" method="POST" class="admin-form form-horizontal" enctype="multipart/form-data">
+        <fieldset>
+   
+    <div class="control-group">
+        <div class="control-label">
+            <label for="key">关键字
+                &nbsp;
+            </label>
+        </div>
+        <div class="controls">
+            <div>
+                <input id="key" name="key" type="text" value="">
+            </div>
+        </div>
+    </div>
+  
+    <div class="control-group">
+        <div class="control-label">
+            <label for="warning">高危（出现即报警）
+                &nbsp;
+            </label>
+        </div>
+        <div class="controls">
+            <div>
+                <input id="warning" name="warning" type="checkbox" value="y">
+            </div>
+        </div>
+    </div>
+ 
+    <hr>
+    <div class="control-group">
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="保存" />
+
+    <input name="_add_another" type="submit" class="btn" value="保存并添加另一个" />
+  
+{% endblock %}
