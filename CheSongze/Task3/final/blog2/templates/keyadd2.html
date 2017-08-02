@@ -1,0 +1,25 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<div class="row-fluid">
+
+    <div>
+        <h1>添加关键字</h1>
+        <form action="{{ url_for('.add_key') }}" method='POST' class=add-key>
+            <dl>
+                <dt>标题:
+                <dd><input type='text' size='30' name='key'>
+                <dt>内容:<label><input name="warning" type="checkbox" value="1" /></label>
+                <dd><input type=submit value=发送>
+                     <div class="row">
+        <div class="col-sm-2 col-sm-offset-2">
+            <input name="sex" value="M" type="radio"  checked="checked"> 男
+        </div>
+<div class="col-sm-2 ">
+            <input name="sex" value="F" type="radio"> 女
+        </div>
+            </dl>
+        </form>
+
+    <a class="btn btn-primary" href="/"><i class="icon-arrow-left icon-white"></i> Back</a>
+</div>
+{% endblock %}
